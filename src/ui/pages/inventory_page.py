@@ -2,16 +2,15 @@ from playwright.sync_api import Page, expect
 from .base_page import BasePage
 
 class InventoryPage(BasePage):
+    # Example selectors for an inventory/products page. Replace with your application's selectors.
     inventory_container = ".inventory_list"
     add_to_cart_btn = "button[data-test='add-to-cart-sauce-labs-backpack']"
     cart_icon = ".shopping_cart_link"
 
     def __init__(self, page: Page) -> None:
         """
-        Initialize the InventoryPage object.
-
-        Args:
-            page (Page): The Playwright Page instance to interact with.
+        Example InventoryPage object. Replace selectors and methods as needed for your app.
+        Extend this class for your own inventory/product workflows.
         """
         super().__init__(page)
 
@@ -41,3 +40,7 @@ class InventoryPage(BasePage):
             None
         """
         self.page.click(self.cart_icon)
+
+# Example usage:
+# class MyInventoryPage(InventoryPage):
+#     ...

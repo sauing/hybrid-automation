@@ -1,6 +1,37 @@
-# UI + API Automation Framework.
+# Hybrid UI + API Automation Framework Template
 
-A robust, scalable Python framework for automated testing of both web UIs and APIs. Built with Playwright, Requests, and Pytest, it enables seamless end-to-end, UI, and API test automation with environment-based configuration and rich reporting.
+A robust, scalable Python template for automated testing of both web UIs and APIs. Built with Playwright, Requests, and Pytest, it enables seamless end-to-end, UI, and API test automation with environment-based configuration and rich reporting.
+
+---
+
+## How to Use This Template
+
+1. **Copy or Fork This Repository**
+   - Use this repo as a starting point for your own automation project.
+
+2. **Configuration**
+   - Copy `config/template.json` to `config/dev.json`, `config/qa.json`, etc. and fill in your environment-specific values.
+   - Add or modify config keys as needed for your project.
+
+3. **API Client**
+   - `src/api/client.py` contains example methods and endpoints. Replace or extend these with your own API endpoints.
+   - Use the provided structure for authentication and session management.
+
+4. **UI Page Objects**
+   - `src/ui/pages/base_page.py` is a generic base class for your page objects.
+   - `src/ui/pages/login_page.py` and `src/ui/pages/inventory_page.py` are examples. Replace selectors and methods with those for your application, or add new page objects as needed.
+
+5. **Utilities**
+   - `src/utils/config.py` loads config based on the ENV variable. Extend as needed.
+   - `src/utils/logger.py` provides a logger. Change log level or add file logging as needed.
+
+6. **Writing Tests**
+   - Place new API tests in `tests/api/`, UI tests in `tests/ui/`, and hybrid tests in `tests/e2e/`.
+   - Use fixtures from `conftest.py` for config and API client access.
+   - Use Playwright’s page object model for UI automation.
+
+7. **Remove Example Code**
+   - Remove or replace example endpoints, selectors, and test cases with your own.
 
 ---
 
@@ -29,15 +60,15 @@ A robust, scalable Python framework for automated testing of both web UIs and AP
 ## Project Structure
 ```
 ├── src/                # Framework source code
-│   ├── api/            # API client, helpers
-│   ├── ui/             # UI page objects, helpers
-│   ├── utils/          # Config, utilities
+│   ├── api/            # API client, helpers (replace with your endpoints)
+│   ├── ui/             # UI page objects, helpers (replace with your pages)
+│   ├── utils/          # Config, logger, utilities
 │   └── __init__.py
-├── tests/              # Test cases
+├── tests/              # Test cases (add your own)
 │   ├── api/            # API tests
 │   ├── ui/             # UI tests
 │   └── e2e/            # End-to-end (hybrid) tests
-├── config/             # Environment configs (dev.json, qa.json, ...)
+├── config/             # Environment configs (copy template.json)
 ├── scripts/            # Setup scripts
 │   └── setup_playwright.ps1
 ├── conftest.py         # Pytest fixtures (config, API client, etc.)
@@ -110,15 +141,8 @@ allure serve allure-results
 ---
 
 ## Configuration
-- Edit or add environment configs in `config/` (e.g., `dev.json`, `qa.json`).
+- Copy `config/template.json` to your environment (e.g., `dev.json`, `qa.json`) and fill in values.
 - Sensitive data (tokens, etc.) can be set via environment variables or config files.
-
----
-
-## Writing Tests
-- Place new API tests in `tests/api/`, UI tests in `tests/ui/`, and hybrid tests in `tests/e2e/`.
-- Use fixtures from `conftest.py` for config and API client access.
-- Use Playwright’s page object model for UI automation.
 
 ---
 
@@ -136,6 +160,11 @@ Defined in `pytest.ini`:
 2. Add/modify tests or framework code.
 3. Ensure all tests pass and code is linted.
 4. Submit a pull request with a clear description.
+
+---
+
+## License
+[MIT](LICENSE)
 
 ---
 

@@ -7,6 +7,10 @@ class BasePage:
 
         Args:
             page (Page): The Playwright Page instance to interact with.
+
+        Note:
+            Use this class as a base for your own page objects.
+            Extend and add common methods for your UI automation needs.
         """
         self.page = page
 
@@ -33,3 +37,7 @@ class BasePage:
             None
         """
         expect(self.page.get_by_text(text)).to_be_visible()
+
+# Example usage:
+# class MyPage(BasePage):
+#     ...

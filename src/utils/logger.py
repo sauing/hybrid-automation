@@ -16,6 +16,10 @@ Logger instance for the hybrid automation framework.
 
 Attributes:
     log (logging.Logger): Configured logger for use throughout the project.
+
+Note:
+    You can change the log level by calling log.setLevel(logging.DEBUG) or similar.
+    To add file logging, add a FileHandler to the logger in this file.
 """
 
 def get_logger() -> logging.Logger:

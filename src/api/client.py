@@ -10,14 +10,28 @@ class ApiClient:
         Args:
             token (str | None, optional): Bearer token for authentication. Defaults to None.
 
-        Returns:
-            None
+        Note:
+            Replace or extend the methods below with your own API endpoints.
+            Use this class as a template for your API client implementation.
         """
         self.base = CFG["api_base"].rstrip("/")
         self.session = requests.Session()
         if token:
             self.session.headers.update({"Authorization": f"Bearer {token}"})
 
+    # Example endpoint method. Replace or extend as needed.
+    def get_example(self) -> requests.Response:
+        """
+        Example method for a GET endpoint. Replace with your own endpoints.
+
+        Returns:
+            requests.Response: The HTTP response object.
+        """
+        url = f"{self.base}/example"
+        log.info(f"GET {url}")
+        return self.session.get(url, timeout=30)
+
+    # Remove or modify the methods below as needed for your project.
     def get_products(self) -> requests.Response:
         """
         Retrieve the list of products from the API.
