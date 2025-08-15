@@ -22,7 +22,7 @@ A robust, scalable Python template for automated testing of both web UIs and API
 
 3. **API Client**
    - `src/api/client.py` contains example methods and endpoints. Replace or extend these with your own API endpoints.
-   - Use the provided structure for authentication and session management.
+   - Use the provided structure for authentication and session management
 
 4. **UI Page Objects**
    - `src/ui/pages/base_page.py` is a generic base class for your page objects.
