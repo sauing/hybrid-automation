@@ -1,4 +1,4 @@
-# Hybrid UI + API Automation Framework
+# UI + API Automation Framework
 
 A robust, scalable Python framework for automated testing of both web UIs and APIs. Built with Playwright, Requests, and Pytest, it enables seamless end-to-end, UI, and API test automation with environment-based configuration and rich reporting.
 
