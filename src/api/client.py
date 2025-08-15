@@ -16,8 +16,11 @@ class ApiClient:
         """
         self.base = CFG["api_base"].rstrip("/")
         self.session = requests.Session()
+        # Only add Authorization header if token is provided and not empty
         if token:
-            self.session.headers.update({"Authorization": f"Bearer {token}"})
+            token = token.strip()
+            if token:
+                self.session.headers.update({"Authorization": f"Bearer {token}"})
 
     # Example endpoint method. Replace or extend as needed.
     def get_example(self) -> requests.Response:
