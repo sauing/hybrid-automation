@@ -1,12 +1,8 @@
 from playwright.sync_api import Page, expect
 from .base_page import BasePage
+from src.ui.locators import InventoryLocators
 
 class InventoryPage(BasePage):
-    # Example selectors for an inventory/products page. Replace with your application's selectors.
-    inventory_container = ".inventory_list"
-    add_to_cart_btn = "button[data-test='add-to-cart-sauce-labs-backpack']"
-    cart_icon = ".shopping_cart_link"
-
     def __init__(self, page: Page) -> None:
         """
         Example InventoryPage object. Replace selectors and methods as needed for your app.
@@ -21,7 +17,7 @@ class InventoryPage(BasePage):
         Returns:
             None
         """
-        expect(self.page.locator(self.inventory_container)).to_be_visible()
+        expect(self.page.locator(InventoryLocators.INVENTORY_CONTAINER)).to_be_visible()
 
     def add_backpack_to_cart(self) -> None:
         """
@@ -30,7 +26,7 @@ class InventoryPage(BasePage):
         Returns:
             None
         """
-        self.page.click(self.add_to_cart_btn)
+        self.page.click(InventoryLocators.ADD_TO_CART_BACKPACK)
 
     def open_cart(self) -> None:
         """
@@ -39,7 +35,7 @@ class InventoryPage(BasePage):
         Returns:
             None
         """
-        self.page.click(self.cart_icon)
+        self.page.click(InventoryLocators.CART_ICON)
 
 # Example usage:
 # class MyInventoryPage(InventoryPage):

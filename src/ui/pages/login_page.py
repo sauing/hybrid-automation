@@ -1,12 +1,8 @@
 from playwright.sync_api import Page
 from .base_page import BasePage
+from src.ui.locators import LoginLocators
 
 class LoginPage(BasePage):
-    # Example selectors for a login page. Replace with your application's selectors.
-    username = "#user-name"
-    password = "#password"
-    submit = "#login-button"
-
     def __init__(self, page: Page) -> None:
         """
         Example LoginPage object. Replace selectors and methods as needed for your app.
@@ -25,9 +21,9 @@ class LoginPage(BasePage):
         Returns:
             None
         """
-        self.page.fill(self.username, username)
-        self.page.fill(self.password, password)
-        self.page.click(self.submit)
+        self.page.fill(LoginLocators.USERNAME_INPUT, username)
+        self.page.fill(LoginLocators.PASSWORD_INPUT, password)
+        self.page.click(LoginLocators.SUBMIT_BUTTON)
 
 # Example usage:
 # class MyLoginPage(LoginPage):
