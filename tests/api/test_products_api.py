@@ -35,3 +35,10 @@ def test_products_list_schema(api_client) -> None:
     data = resp.json()
     jsonschema.validate(instance=data, schema=PRODUCT_LIST_SCHEMA)
     assert len(data) > 0
+
+def test_no_auth_header_for_public_api(api_client):
+    """
+    Ensure that no Authorization header is sent for public APIs like fakestoreapi.com.
+    """
+    headers = api_client.get_headers()
+    assert 'Authorization' not in headers, f"Authorization header should not be sent, but got: {headers}"

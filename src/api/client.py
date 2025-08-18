@@ -16,8 +16,12 @@ class ApiClient:
         """
         self.base = CFG["api_base"].rstrip("/")
         self.session = requests.Session()
+        # Only add Authorization header if token is provided and not empty
+        # Do not set a placeholder token in your config or environment
         if token:
-            self.session.headers.update({"Authorization": f"Bearer {token}"})
+            token = token.strip()
+            if token:
+                self.session.headers.update({"Authorization": f"Bearer {token}"})
 
     # Example endpoint method. Replace or extend as needed.
     def get_example(self) -> requests.Response:
@@ -28,7 +32,7 @@ class ApiClient:
             requests.Response: The HTTP response object.
         """
         url = f"{self.base}/example"
-        log.info(f"GET {url}")
+        log.info(f"GET {url} | headers={self.session.headers}")
         return self.session.get(url, timeout=30)
 
     # Remove or modify the methods below as needed for your project.
@@ -40,7 +44,7 @@ class ApiClient:
             requests.Response: The HTTP response object containing the products list.
         """
         url = f"{self.base}/products"
-        log.info(f"GET {url}")
+        log.info(f"GET {url} | headers={self.session.headers}")
         return self.session.get(url, timeout=30)
 
     def get_product(self, product_id: int) -> requests.Response:
@@ -54,5 +58,11 @@ class ApiClient:
             requests.Response: The HTTP response object containing the product details.
         """
         url = f"{self.base}/products/{product_id}"
-        log.info(f"GET {url}")
+        log.info(f"GET {url} | headers={self.session.headers}")
         return self.session.get(url, timeout=30)
+
+    def get_headers(self) -> dict:
+        """
+        Return the current session headers.
+        """
+        return dict(self.session.headers)
