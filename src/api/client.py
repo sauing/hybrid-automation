@@ -17,7 +17,6 @@ class ApiClient:
         self.base = CFG["api_base"].rstrip("/")
         self.session = requests.Session()
         # Only add Authorization header if token is provided and not empty
-        # Do not set a placeholder token in your config or environment
         if token:
             token = token.strip()
             if token:

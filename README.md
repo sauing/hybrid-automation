@@ -4,6 +4,13 @@ A robust, scalable Python template for automated testing of both web UIs and API
 
 ---
 
+[![CI](https://img.shields.io/github/actions/workflow/status/sauing/hybrid-automation/ci.yml?branch=main&label=CI)](https://github.com/sauing/hybrid-automation/actions)
+![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white)
+![Playwright](https://img.shields.io/badge/Playwright-UI%20tests-2EAD33)
+[![Template](https://img.shields.io/badge/Use%20this%20Template-ready-brightgreen)](https://github.com/sauing/hybrid-automation/generate)
+[![Allure](https://img.shields.io/badge/Allure-report-blue)](https://sauing.github.io/hybrid-automation/)
+
+
 ## How to Use This Template
 
 1. **Copy or Fork This Repository**
@@ -15,7 +22,7 @@ A robust, scalable Python template for automated testing of both web UIs and API
 
 3. **API Client**
    - `src/api/client.py` contains example methods and endpoints. Replace or extend these with your own API endpoints.
-   - Use the provided structure for authentication and session management.
+   - Use the provided structure for authentication and session management
 
 4. **UI Page Objects**
    - `src/ui/pages/base_page.py` is a generic base class for your page objects.
